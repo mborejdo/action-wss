@@ -1,0 +1,27 @@
+name: 'actions'
+description: 'generic actions'
+inputs:
+  mode:
+    description: 'mode'
+    required: true
+    default: 'cli'
+  cli:
+    description: 'additional cli'
+    required: true
+    default: ''
+  infile:
+    description: 'infile'
+    required: false
+    default: 'infile'
+  outfile:
+    description: 'outfile'
+    required: false
+    default: 'outfile'
+runs:
+  using: 'docker'
+  image: 'docker://mborejdo/action-wss'
+  args:
+    - ${{ inputs.mode }}
+    - ${{ inputs.cli }}
+    - ${{ inputs.infile }}
+    - ${{ inputs.outfile }}
